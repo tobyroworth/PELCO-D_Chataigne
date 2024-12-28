@@ -1,0 +1,49 @@
+{
+  "name": "PELCO-D",
+  "type": "Serial",
+  "path": "Protocol",
+  "version": "1.0.0",
+  "url": "https://github.com/tobyroworth/PELCO-D_Chataigne",
+  "downloadURL": "https://github.com/tobyroworth/PELCO-D_Chataigne/archive/refs/heads/main.zip",
+  "hideDefaultParameters": [
+    "autoAdd",
+    "messageStructure",
+    "customSeparator",
+    "firstValueIsTheName",
+    "dtr",
+    "rts"
+  ],
+  "defaults": {
+    "protocol": "Data255",
+    "autoAdd": 0,
+    "baudRate": 9600,
+    "dtr": false,
+    "rts": false
+  },
+  "hideDefaultCommands": true,
+  "parameters": {
+    "Camera Address": {
+        "type": "Integer",
+        "description": "Address of Camera (1-31)",
+        "min": 1,
+        "max": 31
+      }
+  },
+  "scripts": [
+    "moduleScript.js"
+  ],
+  "values": {
+  },
+  "commands": {
+    "Recall Preset": {
+      "callback": "recallPreset",
+      "parameters": {
+        "Preset": {
+          "type": "Integer",
+          "min": 0,
+          "max": 255
+        }
+      }
+    }
+  }
+}
